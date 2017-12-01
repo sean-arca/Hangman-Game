@@ -1,0 +1,46 @@
+/* Body */
+body {
+	font-family:'Playfair Display';
+	color:black;
+	font-weight: 200;
+}
+
+.container-fluid {
+	width:100%;
+	max-width:960px;
+	margin: 0, auto;
+}
+
+/* Intro */
+.text-big {
+	font-size: 5em;
+}
+
+.intro {
+	position:fixed;
+	float:left;
+	right: 100px;
+	top: 100px;
+}
+
+/* Question */
+.text-med {
+	font-size: 3em;
+}
+
+.quest {
+	position:relative;
+	top:50px;
+	line-height:1.5;
+}
+
+/* Animate CSS Edits */
+.fadeOut {
+	animation-duration: 5s;
+	animation-delay:3s;
+}
+
+.fadeIn {
+	animation-duration: 6s;
+	animation-delay:5s;
+}
