@@ -4,3 +4,18 @@ var wordBank = ["daenarys", "dragons", "lannister", "kings", "winterfell", "joff
 // Choose a word at random
 var word = wordBank[Math.floor(Math.random() * wordBank.length)];
 	console.log(`The word is ${word}`)
+
+// Create array for the chosen word and for the placeholder. 
+var placeHolders = [];
+var ourWord = [];
+
+// Create loop that targets the ${word} by length. 
+for (var i = 0; i < word.length; i++) {
+	// Push the ${word}'s letters into the ${ourWord} array.
+	ourWord.push(word[i]);
+	// Push the amount of ${word}'s letters into the ${placeHolders} array but replaces it with "_ ".
+	placeHolders.push("_ ");
+}
+
+// Append or Insert the content of the ${placeHolders} array into the #guessWord element.
+$("#guessWord").append(placeHolders);
