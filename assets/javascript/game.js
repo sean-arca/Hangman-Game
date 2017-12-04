@@ -60,6 +60,43 @@ document.onkeyup = function(event) {
 6. Show player progress
 7. Finish when player guessed the word
 
+*/
+
+// Pick a random word
+
+// While word has not been guessed (loop) {
+
+	// Show progress (fill in letters)
+
+	// Prompt player for a letter to guess
+
+	// IF player wants to quit or play again (loop with if/else) {
+
+		// If Quit game
+
+		// Else Play again
+
+		// }
+
+	// Else/If the guess is not a single letter {
+
+		// Make player pick a single letter
+	
+		// }
+
+	// Else {
+
+		// If letter guessed is in the word {
+
+			// Update progress with guessed letter
+
+		// }
+
+	// }
+
+// }
+
+// Hooray you guessed the word!
 
 
 
