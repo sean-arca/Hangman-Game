@@ -5,7 +5,7 @@ var wordBank = ["daenarys", "dragons", "lannister", "kings", "winterfell", "joff
 var word = wordBank[Math.floor(Math.random() * wordBank.length)];
 	console.log(`The word is ${word}`)
 
-// Create array for the chosen word and for the placeholder. 
+// Create empty arrays for the chosen word and for the placeholder. 
 var placeHolders = [];
 var ourWord = [];
 
@@ -19,3 +19,14 @@ for (var i = 0; i < word.length; i++) {
 
 // Append or Insert the content of the ${placeHolders} array into the #guessWord element.
 $("#guessWord").append(placeHolders);
+
+// Target where to display letterschosen(on key up)
+var lettersChosen = [];
+var userText = document.getElementById("entered");
+
+// Run this function when key is pressed
+document.onkeyup = function(event) {
+	userText.innerHTML = event.key;
+	lettersChosen.push(userText);
+	// $("#entered").append(lettersChosen);
+}
