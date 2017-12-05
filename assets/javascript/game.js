@@ -14,12 +14,11 @@ for (var i = 0; i < word.length; i++) {
 	// Push the ${word}'s letters into the ${ourWord} array.
 	ourWord.push(word[i]);
 	// Push the amount of ${word}'s letters into the ${placeHolders} array but replaces it with "_ ".
-	placeHolders.push("_ ");
+	placeHolders[i] = "_ ";
 	// Winning condition
 	if (placeHolders.indexOf("_ ") === -1) {
 		document.write(`<h1 style="font-family:Playfair Display; font-size:3em; font-weight:200; position:absolute; right:100px; top:100px">You heard ${ourWord}.</h1>`);
 	}
-
 }
 
 // Append or Insert the content of the ${placeHolders} array into the #guessWord element.
@@ -28,23 +27,28 @@ $("#guessWord").append(placeHolders);
 // Target where to display letterschosen(on key up)
 var lettersChosen = [];
 
-// Set amount of lives
+// Set amount of lives and remaining letters
 var triesLeft = document.getElementById("tries-left");
 triesLeft.innerHTML = 6;
 tries = 6;
+var lettersRemain = word.length;
 
 // Run this function when key is pressed
 document.onkeyup = function(event) {
 
-	// Display letter pressed in div id [NEED TO CHANGE TO DISPLAY ARRAY]
-	document.getElementById("entered").innerHTML = event.key;
-	// Push letter pressed into letterChosen array
-	lettersChosen.push(event.key);
+	// Display letter pressed in #entered div
+	document.getElementById("entered").innerHTML = lettersChosen;
+	lettersChosen.push(event.key).toString();
 	console.log("Key Pressed");
 	console.log(lettersChosen);
 	
-	// For loop to do comparison
-
+	// For loop to do comparison instead
+	for (var j = 0; j < ourWord.length; j++) {
+		if (ourWord[j] === lettersChosen) {
+			placeHolders.push(`${ourWord}[i]`) = lettersChosen;
+		}
+		
+	}
 
 
 
@@ -65,5 +69,8 @@ document.onkeyup = function(event) {
 	// (If) lose if lives = 0
 	if (tries === 0) {
 		document.write(`<h1 style="font-family:Playfair Display; font-size:3em; font-weight:200; position:absolute; right:100px; top:100px">You have lost consciousness.</h1>`);
+		setTimeout(function() {
+			window.location.reload(true);
+		  },"1500");
 	}
 }
