@@ -34,19 +34,22 @@ tries = 6;
 var lettersRemain = word.length;
 
 // Run this function when key is pressed
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
 
 	// Display letter pressed in #entered div
 	document.getElementById("entered").innerHTML = lettersChosen;
-	lettersChosen.push(event.key).toString();
+	lettersChosen.push(event.key);
 	console.log("Key Pressed");
 	console.log(lettersChosen);
 	
 	// For loop to do comparison instead
 	for (var j = 0; j < ourWord.length; j++) {
-		if (ourWord[j] === lettersChosen) {
-			placeHolders.push(`${ourWord}[i]`) = lettersChosen;
-		}
+		
+
+		if (ourWord[j] === lettersChosen[j]) {
+			placeHolders[i] = "";
+			lettersRemain--;
+		};
 		
 	}
 
@@ -67,10 +70,10 @@ document.onkeyup = function(event) {
 	// }
 
 	// (If) lose if lives = 0
-	if (tries === 0) {
-		document.write(`<h1 style="font-family:Playfair Display; font-size:3em; font-weight:200; position:absolute; right:100px; top:100px">You have lost consciousness.</h1>`);
+	if (tries === 0 && lettersRemain >= 1) {
+		document.write(`<h1 style="font-family:Playfair Display; font-size:3em; font-weight:200; position:absolute; right:100px; top:100px">You lose consciousness for a moment and suddenly..</h1><br><img src="./assets/images/end.gif" style="position:absolute; right:100px; top: 300px; width: 500px; height:auto;">`);
 		setTimeout(function() {
 			window.location.reload(true);
-		  },"1500");
+		  },"10000");
 	}
 }
