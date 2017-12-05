@@ -1,5 +1,5 @@
 // Create an array of words
-var wordBank = ["daenarys", "dragons", "lannister", "kings", "winterfell", "joffrey"];
+var wordBank = ["daenarys", "rhaegar", "targaryen", "dragons", "lannister", "kings", "winterfell", "joffrey", "tyrion", "sansa", "arya", "stark"];
 
 // Choose a word at random
 var word = wordBank[Math.floor(Math.random() * wordBank.length)];
@@ -62,12 +62,12 @@ document.onkeyup = function (event) {
 
 	// }
 
-	// // (Else) no match subtract from chances left and display on #tries-left span
-	// if (lettersChosen[i] !== ourWord[i]) {
-	// 	triesLeft.innerHTML--;
-	// 	tries--;
-	// 	console.log("Not a match");
-	// }
+	// If no match subtract from chances left and display on #tries-left span
+	if (lettersChosen[i] !== ourWord[i]) {
+		triesLeft.innerHTML--;
+		tries--;
+		console.log("Not a match");
+	}
 
 	// (If) lose if lives = 0
 	if (tries === 0 && lettersRemain >= 1) {
