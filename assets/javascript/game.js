@@ -15,6 +15,11 @@ for (var i = 0; i < word.length; i++) {
 	ourWord.push(word[i]);
 	// Push the amount of ${word}'s letters into the ${placeHolders} array but replaces it with "_ ".
 	placeHolders.push("_ ");
+	// Winning condition
+	if (placeHolders.indexOf("_ ") === -1) {
+		document.write(`<h1 style="font-family:Playfair Display; font-size:3em; font-weight:200; position:absolute; right:100px; top:100px">You heard ${ourWord}.</h1>`);
+	}
+
 }
 
 // Append or Insert the content of the ${placeHolders} array into the #guessWord element.
@@ -29,30 +34,36 @@ triesLeft.innerHTML = 6;
 tries = 6;
 
 // Run this function when key is pressed
-document.onkeydown = function(event) {
+document.onkeyup = function(event) {
 
 	// Display letter pressed in div id [NEED TO CHANGE TO DISPLAY ARRAY]
 	document.getElementById("entered").innerHTML = event.key;
 	// Push letter pressed into letterChosen array
 	lettersChosen.push(event.key);
+	console.log("Key Pressed");
+	console.log(lettersChosen);
 	
-	// If/else if letterChosen matches ourWord array
-	if (lettersChosen[i] === ourWord[i]) {
-		// (If) match then change placeholder text to letter
+	// For loop to do comparison
 
-	}
 
-	// (Else) no match subtract from chances left and display on #tries-left span
-	else {
-		triesLeft.innerHTML--;
-		tries--;
-	}
+
+
+	// // If/else if letterChosen matches ourWord array
+	// if (lettersChosen.indexOf() === ourWord.indexOf()) {
+	// 	// (If) match then change placeholder text to letter (user indexOf)
+	// 	console.log("That letter matches");
+
+	// }
+
+	// // (Else) no match subtract from chances left and display on #tries-left span
+	// if (lettersChosen[i] !== ourWord[i]) {
+	// 	triesLeft.innerHTML--;
+	// 	tries--;
+	// 	console.log("Not a match");
+	// }
+
 	// (If) lose if lives = 0
 	if (tries === 0) {
-		document.write(`<h1 class="quest">You have lost consciousness</h1>`);
+		document.write(`<h1 style="font-family:Playfair Display; font-size:3em; font-weight:200; position:absolute; right:100px; top:100px">You have lost consciousness.</h1>`);
 	}
 }
-
-
-
-
