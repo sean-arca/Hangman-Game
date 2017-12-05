@@ -23,6 +23,11 @@ $("#guessWord").append(placeHolders);
 // Target where to display letterschosen(on key up)
 var lettersChosen = [];
 
+// Set amount of lives
+var triesLeft = document.getElementById("tries-left");
+triesLeft.innerHTML = 6;
+tries = 6;
+
 // Run this function when key is pressed
 document.onkeydown = function(event) {
 
@@ -30,14 +35,22 @@ document.onkeydown = function(event) {
 	document.getElementById("entered").innerHTML = event.key;
 	// Push letter pressed into letterChosen array
 	lettersChosen.push(event.key);
-
-	// If/else if letter pressed matches word
-
+	
+	// If/else if letterChosen matches ourWord array
+	if (lettersChosen[i] === ourWord[i]) {
 		// (If) match then change placeholder text to letter
 
-		// (Else If) no match subtract from chances left and display on #tries-left span
+	}
 
-		// (Else) lose if lives = 0
+	// (Else) no match subtract from chances left and display on #tries-left span
+	else {
+		triesLeft.innerHTML--;
+		tries--;
+	}
+	// (If) lose if lives = 0
+	if (tries === 0) {
+		document.write(`<h1 class="quest">You have lost consciousness</h1>`);
+	}
 }
 
 
