@@ -3,7 +3,7 @@ var wordBank = ["daenarys", "rhaegar", "targaryen", "dragons", "lannister", "kin
 
 // Choose a word at random
 var word = wordBank[Math.floor(Math.random() * wordBank.length)];
-	console.log(`The word is ${word}`)
+	// console.log(`The word is ${word}`) for testing purposes
 
 // Create empty arrays for the chosen word and for the placeholder. 
 var placeHolders = [];
@@ -35,8 +35,8 @@ document.onkeyup = function (event) {
 	// Display letter pressed in #entered div
 	lettersChosen.push(event.key);
 	document.getElementById("entered").innerHTML = lettersChosen;	
-	console.log("Key Pressed");
-	console.log(lettersChosen);
+	// console.log("Key Pressed"); for testing purposes 
+	// console.log(lettersChosen); for testing purposes
 	
 	// Set boolean for isFound to false so if letter matches turn to true
 	var isFound = false;
@@ -54,7 +54,7 @@ document.onkeyup = function (event) {
 
 	// if isFound stays false, then subtract tries
 	if (isFound === false) {
-		console.log("Not a match");
+		// console.log("Not a match"); for testing purposes
 		tries--;
 		triesLeft.innerHTML--;
 	}
