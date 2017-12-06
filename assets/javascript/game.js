@@ -20,7 +20,7 @@ for (var i = 0; i < word.length; i++) {
 // Append or Insert the content of the ${placeHolders} array into the #guessWord element.
 $("#guessWord").append(placeHolders);
 
-// Target where to display letterschosen(on key up)
+// Create an array of letters pressed
 var lettersChosen = [];
 
 // Set amount of lives and remaining letters
@@ -38,6 +38,9 @@ document.onkeyup = function (event) {
 	console.log("Key Pressed");
 	console.log(lettersChosen);
 	
+	// Set boolean for isFound to false so if letter matches turn to true
+	var isFound = false;
+
 	// For loop to do comparison instead
 	for (var position = 0; position < ourWord.length; position++) {
 		
@@ -45,35 +48,18 @@ document.onkeyup = function (event) {
 			placeHolders[position] = event.key;
 			document.getElementById("guessWord").innerHTML = placeHolders.join("");
 			lettersRemain--;
+			isFound = true;
 		}
 	}
 
-
-
-	var isWrong = function () {
-		if (ourWord[position] !== event.key) {
-			alert("wrong!");
-		}	
+	// if isFound stays false, then subtract tries
+	if (isFound === false) {
+		console.log("Not a match");
+		tries--;
+		triesLeft.innerHTML--;
 	}
-
-
-
-	// else if (lettersChosen[i] !== ourWord[i]) {
-	// 	
-	// 	console.log("Not a match");
-
-	// if no letters match, by the end of the loop subtract from chances left
-	// .join to get rid of commas
-
-	// // }
-	// lettersRemain--;
-	// If no match subtract from chances left and display on #tries-left span
-	var notMatch;
-
-	// Game Reset
 	
-
-	// Winning condition
+	// Winning condition + Game Reset
 	if (lettersRemain === 0) {
 		alert("You heard " + ourWord.join(""));
 
@@ -83,11 +69,8 @@ document.onkeyup = function (event) {
 		}
 	}
 
-	
-
-
 	// (If) lose if lives = 0
-	if (tries <= 0 && lettersRemain >= 1) {
+	if (tries <= 0 && lettersRemain >= 0) {
 		document.write(`<h1 style="font-family:Playfair Display; font-size:3em; font-weight:200; position:absolute; right:100px; top:100px">You lose consciousness for a moment and suddenly..</h1><br><img src="./assets/images/end.gif" style="position:absolute; right:100px; top: 300px; width: 500px; height:auto;">`);
 		setTimeout(function() {
 			window.location.reload(true);
