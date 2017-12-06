@@ -77,3 +77,11 @@ document.onkeyup = function (event) {
 		  },"10000");
 	}
 }
+
+/* Things to fix/change:
+	- Add whole game into wrapper so when game isn't visible yet, then don't take any key inputs.
+	- Filter that only letters can be used for guessing by switching to keyCode. Currently takes all characters/buttons.
+	- If key pressed matches word, don't list letters on lettersChosen array and only on word being guessed.
+	- When completing a word, the last letters don't fill and alert prompt comes up too soon. Want letters to fill at the same time as prompt.
+	- Add # of wins?
+*/
